@@ -1,0 +1,21 @@
+.chat {
+    $border-radius: 2rem;
+    background-color: white;
+    border-radius: $border-radius;
+
+    &__brand {
+        display: flex;
+        align-items: center;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        background-image: var(--gradient-7);
+        height: 2rem;
+        padding-left: 2rem;
+
+        h1 {
+            font-family: var(--font-neo-grotesque);
+            font-size: 1.5rem;
+            color: white;
+        }
+    }
+}

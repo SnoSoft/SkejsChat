@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import "https://unpkg.com/open-props";
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -57,7 +58,31 @@ html {
   font-size: 10px;
 }
 
+.chat {
+  background-color: white;
+  border-radius: 2rem;
+}
+.chat__brand {
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  background-image: var(--gradient-7);
+  height: 2rem;
+  padding-left: 2rem;
+}
+.chat__brand h1 {
+  font-family: var(--font-neo-grotesque);
+  font-size: 1.5rem;
+  color: white;
+}
+
+.chat {
+  margin: 10rem;
+}
 .chat-body {
   display: flex;
   justify-content: center;
+  background-image: var(--gradient-2);
+  background-size: 100vw 100vh;
 }
