@@ -57,7 +57,7 @@
         }
     }
     &__feed {
-        overflow: scroll;
+        overflow-y: scroll;
         margin: 1rem 0;
         flex-grow: 9999;
         display: flex;
