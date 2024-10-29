@@ -1,0 +1,9 @@
+.chat {
+    &-body {
+        display: flex;
+        justify-content: center;
+        background-image: var(--gradient-2);
+        background-size: 100vw 100vh;
+    }
+    margin: 10rem;
+}

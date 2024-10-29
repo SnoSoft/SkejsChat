@@ -1,0 +1,48 @@
+.btn {
+    $btn-color: var(--gradient-7);
+    $gradient-7-average: #398abf;
+    $gradient-7-darken-percentage: 20%;
+    $gradient-7-darkened: linear-gradient(to bottom right, darken(#72c6ef, $gradient-7-darken-percentage), darken(#004e8f, $gradient-7-darken-percentage));
+    $btn-text-color: white;
+    background-image: $btn-color;
+    background-size: 200% 100%;
+    background-position: 50% 0%;
+    transition: background-position 250ms;
+    border-radius: 1rem;
+    color: $btn-text-color;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: var(--font-neo-grotesque);
+    padding: 1rem;
+    -webkit-tap-highlight-color: transparent;
+    &,
+    span {
+        display: inline-block;
+    }
+    $btn-edge: 0.4rem;
+    $btn-hole-edge: 0.2rem;
+    $drop-shadow-color: rgba(0,0,0,0.47);
+    $dark-edge-color: rgba(0,0,0,0.27);
+    $light-edge-color: rgba(255,255,255,0.27);
+    $colored-dark-edge-color: $gradient-7-average;
+    box-shadow:
+        // drop shadow
+        $btn-edge $btn-edge 1rem $drop-shadow-color,
+        // bottom edge of hole
+        0 $btn-hole-edge 0 $btn-hole-edge $light-edge-color,
+        // right edge of button
+        (-$btn-edge) 0 $btn-edge $colored-dark-edge-color inset,
+        // top edge of button
+        0 $btn-edge $btn-edge $light-edge-color inset,
+        // left edge of button
+        $btn-edge 0 $btn-edge $light-edge-color inset,
+        // bottom edge of button
+        0 (-$btn-edge) $btn-edge $colored-dark-edge-color inset;
+    
+    &:hover {
+        background-position: 0% 0%;
+    }
+    &:active {
+        background-image: $gradient-7-darkened;
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkejsChat</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="chat-body">
+    <div class="chat">
+        <div class="chat__brand">
+            <h1>SkejsChat</h1>
+        </div>
+        <div class="chat__container">
+            <div class="chat__username">
+                <p>Use this username:&nbsp;</p>
+                <input type="text" id="username" placeholder="Username">
+            </div>
+            <hr>
+            <div class="chat__feed">
+                <div class="chat__message chat__message--hidden chat__message--not-by-user" id="message-generic">
+                    <h3 class="chat__message__user">User</h3>
+                    <p class="chat__message__contents">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, quia totam tempore sit voluptate consequatur.</p>
+                </div>
+                <div class="chat__message chat__message--hidden chat__message--by-user" id="message-generic">
+                    <h3 class="chat__message__user">User</h3>
+                    <p class="chat__message__contents">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur maiores in, voluptatum consequuntur soluta porro? Similique aspernatur mollitia repellendus quisquam.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="chat__outbox__container">
+                <div class="chat__outbox">
+                    <p class="chat__outbox__text" contenteditable>Hello World!</p>
+                </div>
+                <a href="#" class="btn">Send</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

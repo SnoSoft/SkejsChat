@@ -1,0 +1,118 @@
+.chat {
+    $border-radius: 1.5rem;
+    $title-size: 3rem;
+    $message-border-radius: 1rem;
+    $text-size: 1.5rem;
+    background-color: white;
+    border-radius: $border-radius;
+    width: 60rem;
+    height: 80rem;
+    font-family: var(--font-neo-grotesque);
+    box-shadow: 0 2rem 4rem rgba(black, 0.6);
+    display: flex;
+    flex-direction: column;
+
+    &__container {
+        margin: 1rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        & > hr {
+            border: none;
+            background-color: lightgrey;
+            height: 0.2rem;
+            width: 100%;
+            margin: 1rem 0;
+        }
+    }
+
+    &__brand {
+        display: flex;
+        align-items: center;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        background-image: var(--gradient-7);
+        background-size: 200% 100%;
+        background-position: 0% 0;
+        height: $title-size;
+        padding-left: $border-radius;
+
+        h1 {
+            font-size: 1.5rem;
+            color: white;
+        }
+    }
+
+    &__username {
+        display: flex;
+        align-items: center;
+        p {
+            font-size: $text-size;
+        }
+
+        #username {
+            font-family: var(--font-monospace-code);
+            margin-left: 0.5rem;
+        }
+    }
+    &__feed {
+        overflow: scroll;
+        margin: 1rem 0;
+        flex-grow: 9999;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+    &__message {
+        $current-message: &;
+        width: 80%;
+        border-radius: $message-border-radius;
+        padding: $message-border-radius * 0.8;
+        font-size: $text-size;
+        background-color: lighten(lightgrey, 10%);
+
+        &__user {
+            margin-bottom: 0.5rem;
+            font-family: var(--font-monospace-code);
+            font-weight: 900;
+            color: grey;
+        }
+        &__contents {
+            font-weight: 400;
+            font-family: var(--font-system-ui);
+        }
+        &--not-by-user {
+            align-self: start;
+        }
+        &--by-user {
+            align-self: end;
+            background-color: var(--blue-5);
+            #{$current-message}__user {
+                color: lightgrey;
+            }
+            #{$current-message}__contents {
+                color: white;
+            }
+        }
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+    &__outbox {
+        padding: $message-border-radius * 0.8;
+        border-radius: $message-border-radius;
+        border: 0.2rem solid lightgrey;
+        flex-grow: 9999;
+        margin-right: 1rem;
+        overflow-x: hidden;
+        
+        &__container {
+            display: flex;
+            align-items: end;
+        }
+        &__text {
+            font-size: $text-size;
+        }
+    }
+}
