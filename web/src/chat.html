@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkejsChat</title>
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/base/skejs-logger.js" defer></script>
+    <script src="js/base/component.js" defer></script>
+    <script src="js/chat.js" defer></script>
 </head>
 <body class="chat-body">
     <div class="chat">
@@ -18,11 +21,11 @@
             </div>
             <hr>
             <div class="chat__feed">
-                <div class="chat__message chat__message--hidden chat__message--not-by-user" id="message-generic">
+                <div class="component chat__message chat__message--hidden chat__message--not-by-user" data-component-name="message-not-by-user">
                     <h3 class="chat__message__user">User</h3>
                     <p class="chat__message__contents">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, quia totam tempore sit voluptate consequatur.</p>
                 </div>
-                <div class="chat__message chat__message--hidden chat__message--by-user" id="message-generic">
+                <div class="component chat__message chat__message--hidden chat__message--by-user" data-component-name="message-by-user">
                     <h3 class="chat__message__user">User</h3>
                     <p class="chat__message__contents">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur maiores in, voluptatum consequuntur soluta porro? Similique aspernatur mollitia repellendus quisquam.</p>
                 </div>
