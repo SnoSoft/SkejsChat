@@ -8,6 +8,7 @@ componentsQuery.forEach((i) => {
         return;
     }
     if (!i.hasAttribute("data-component-is-generic")) {
+        i.parentNode.removeChild(i);
         i.setAttribute("data-component-is-generic", "");
         components.push({
             name: i.getAttribute("data-component-name"),
@@ -18,16 +19,24 @@ componentsQuery.forEach((i) => {
 
 class SkejsComponent {
     findComponent(sourceName) {
-        for (i=0; i < components.length; i++) {
+        for (let i=0; i < components.length; i++) {
             if (components[i].name === sourceName) return components[i];
         }
-    }
-    insertAfter(referenceNode, sourceName, id="") {  // Insert component after a node, return new node made from component.
+    };
+    createNode(sourceName, id="") {
         const inNode = this.findComponent(sourceName);
-        const outNode = inNode.node.cloneNode();
+        const outNode = inNode.node.cloneNode(true);
         if (id) outNode.setAttribute("id", id);
-
+        return outNode
+    };
+    insertAfter(referenceNode, sourceName, id="") {  // Insert component after a node, return new node made from component.
+        const outNode = this.createNode(sourceName, id);
         referenceNode.parentNode.insertBefore(outNode, referenceNode.nextSibling);
+        return outNode;
+    };
+    appendChild(referenceNode, sourceName, id="") {
+        const outNode = this.createNode(sourceName, id);
+        referenceNode.appendChild(outNode);
         return outNode;
     }
 }
