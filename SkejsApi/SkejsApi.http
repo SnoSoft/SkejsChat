@@ -1,0 +1,6 @@
+@SkejsApi_HostAddress = http://localhost:5001
+
+GET {{SkejsApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
