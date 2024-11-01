@@ -1,0 +1,10 @@
+{
+    "messages": [
+        {
+            "Sender_id": 1,
+            "Receiver_id": 2,
+            "Message": "Dette er en test af message.json",
+            "Timestamp": "2024-10-27T17:51:43.511Z"
+        }
+    ]
+}
