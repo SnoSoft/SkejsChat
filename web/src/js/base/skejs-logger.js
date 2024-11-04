@@ -1,3 +1,4 @@
+"use strict";
 class SkejsLog {
     error(errorMessage) {
         console.error(`%c${this.brand} error: ${errorMessage}`, `color: white`);

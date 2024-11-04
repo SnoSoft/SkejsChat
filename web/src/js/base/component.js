@@ -1,3 +1,4 @@
+"use strict";
 const componentsQuery = document.querySelectorAll(".component");
 const components = [];
 const slc = new SkejsLog("SkejsComponent");
