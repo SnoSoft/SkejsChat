@@ -198,4 +198,5 @@ html {
   justify-content: center;
   background-image: var(--gradient-2);
   background-size: 100vw 100vh;
+  background-attachment: fixed;
 }
