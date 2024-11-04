@@ -70,4 +70,4 @@ class SkejsChat {
     };
 };
 
-const schat = new SkejsChat(document.querySelector(".chat")!);
+const schat = new SkejsChat(document.querySelector(".chat__feed")!);
