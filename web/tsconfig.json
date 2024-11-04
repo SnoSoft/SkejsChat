@@ -2,7 +2,7 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "ES6",
-        "outDir": "ts-built",
-        "rootDir": "src"
+        "outDir": "./dist/js",
+        "rootDir": "./src/ts"
     }
 }

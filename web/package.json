@@ -3,8 +3,20 @@
   "version": "0.1.0",
   "description": "A simple chat application",
   "main": "index.js",
+  "watch": {
+    "build": {
+      "patterns": [
+        "./src"
+      ],
+      "extensions": "html,scss,ts,json"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sh ./build.sh",
+    "start": "xdg-open 127.0.0.1:8080; http-server ./dist -p 8080",
+    "watch": "npm-watch build",
+    "dev": "npm-watch build"
   },
   "repository": {
     "type": "git",
@@ -20,6 +32,9 @@
   },
   "homepage": "https://github.com/SnoSoft/SkejsChat#readme",
   "devDependencies": {
+    "http-server": "^14.1.1",
+    "npm-watch": "^0.13.0",
+    "sass": "^1.80.6",
     "typescript": "^5.6.3"
   }
 }
