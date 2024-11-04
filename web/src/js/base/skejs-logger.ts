@@ -1,6 +1,7 @@
 "use strict";
 class SkejsLog {
-    error(errorMessage) {
+    brand : string;
+    error(errorMessage) : void {
         console.error(`%c${this.brand} error: ${errorMessage}`, `color: white`);
     }
     constructor(brand="Skejs") {

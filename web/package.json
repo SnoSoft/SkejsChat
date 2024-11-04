@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/SnoSoft/SkejsChat/issues"
   },
-  "homepage": "https://github.com/SnoSoft/SkejsChat#readme"
+  "homepage": "https://github.com/SnoSoft/SkejsChat#readme",
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
 }
