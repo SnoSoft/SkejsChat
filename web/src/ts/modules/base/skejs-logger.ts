@@ -1,5 +1,5 @@
 "use strict";
-class SkejsLog {
+export class SkejsLog {
     brand : string;
     error(errorMessage) : void {
         console.error(`%c${this.brand} error: ${errorMessage}`, `color: white`);

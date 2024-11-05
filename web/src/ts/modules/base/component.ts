@@ -1,5 +1,6 @@
 "use strict";
-type TSkejsComponent = {
+import { SkejsLog } from "./skejs-logger";
+export type TSkejsComponent = {
     name: string;
     node: Node;
 }
@@ -22,7 +23,7 @@ componentsQuery.forEach((i : Element) => {
     }
 });
 
-class SkejsComponent {
+export class SkejsComponent {
     findComponent(sourceName : string) : TSkejsComponent {
         for (let i=0; i < components.length; i++) {
             if (components[i].name === sourceName) return components[i];
@@ -57,4 +58,4 @@ class SkejsComponent {
     };
 }
 
-const sc = new SkejsComponent();
+export const sc = new SkejsComponent();

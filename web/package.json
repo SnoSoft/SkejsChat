@@ -14,7 +14,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sh ./build.sh",
-    "start": "xdg-open 127.0.0.1:8080; http-server ./dist -p 8080",
+    "start": "xdg-open http://127.0.0.1:8080/; http-server ./dist -p 8080",
     "watch": "npm-watch build",
     "dev": "npm-watch build"
   },
@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/SnoSoft/SkejsChat#readme",
   "devDependencies": {
+    "fix-esm-import-path": "^1.10.1",
     "http-server": "^14.1.1",
     "npm-watch": "^0.13.0",
     "sass": "^1.80.6",
