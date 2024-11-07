@@ -30,19 +30,22 @@ export class SkejsComponent {
         }
         throw new Error(`SkejsComponent: Could not find component with name ${sourceName}`)
     };
+
+    // Preferably you shouldn't use this as it returns a node which retains some attributes which are wrong
+    // and can only be corrected for in createElement(). Use that instead.
     createNode(sourceName : string) : Node {
         const inNode = this.findComponent(sourceName);
         const outNode = inNode.node.cloneNode(true);
-        return outNode
+        return outNode;
     };
     createElement(sourceName : string) : Element {
-        const inNode = this.findComponent(sourceName);
-        const outNode = inNode.node.cloneNode(true);
+        const outNode = this.createNode(sourceName);
+        (outNode as Element).removeAttribute("data-component-is-generic");
         return (outNode as Element);
     }
     insertAfter(referenceNode : Node, sourceName : string, id : string = "") : Element {  // Insert component after a node, return new node made from component.
         if (referenceNode.parentNode === null) {
-            throw new Error("SkejsComponent.insertAfter: Reference node has no parent node, and has no way to insert the component after it.")
+            throw new Error("SkejsComponent.insertAfter: Reference node has no parent node, and has no way to insert the component after it.");
         }
         const outEl = this.createElement(sourceName);
         outEl.id = id;
