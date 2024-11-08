@@ -28,7 +28,6 @@
     "@sveltejs/kit": "^2.0.0",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "@tsconfig/svelte": "^5.0.4",
-    "postcss-jit-props": "^1.0.14",
     "sass-embedded": "^1.80.6",
     "svelte": "^5.0.0",
     "svelte-check": "^4.0.0",
