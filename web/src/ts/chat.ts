@@ -11,6 +11,7 @@ class SkejsChat {
     incomingMessages = new Map<string, TMessageJSON>();
     pollInterval = 2000;
     pollTimer;
+    ignoreErrors = true;
 
     public async getMessages() : Promise<MessageDataJSON> {
         const promise = await fetch("sample-data/message.json");
@@ -69,14 +70,47 @@ class SkejsChat {
     };
     
     async populate() : Promise<void> {
-        this.chatElement.innerHTML = "";  // Quick (but efficient?) hack to remove all chat messages from chat feed :^)
+        this.chatElement.querySelector(".chat__feed").innerHTML = "";  // Quick (but efficient?) hack to remove all chat messages from chat feed :^)
 
         this.messages.forEach((message) => {
             const newNode = (message.Sender_id === 1) ? sc.createElement("message-by-user") : sc.createElement("message-not-by-user");
             newNode.querySelector(".chat__message__user")!.textContent = `${this.usernames.get(message.Sender_id)}`;
             newNode.querySelector(".chat__message__contents")!.textContent = message.Message;
-            this.chatElement.appendChild(newNode);
+            this.chatElement.querySelector(".chat__feed").appendChild(newNode);
         });
+    };
+
+    async send() : Promise<void> {
+        const messageContents = this.chatElement.querySelector(".chat__outbox__text").textContent;
+        if (messageContents === "") return;
+        const now = new Date().toISOString();
+        const params = new URLSearchParams();
+        params.append("message", messageContents);
+        params.append("timestamp", now);
+        
+        const response = await fetch("./api/v1/send", {
+            method: "POST",
+            headers: {
+                Authorization: "none"  // TODO: use authorization
+            },
+            body: params
+        });
+        if (response.status !== 200 && !this.ignoreErrors) {
+            alert(`Failed to send the message: ${messageContents}`);
+            return;
+        }
+
+        // TODO: use sender_id instead of 0 once auth is in place
+        // receiver_id = 0 should maybe mean allchat?
+
+        this.messages.set(`${now}/0`, {
+            Sender_id: 0,
+            Receiver_id: 0,
+            Message: messageContents,
+            Timestamp: now
+        });
+        this.chatElement.querySelector(".chat__outbox__text").textContent = "";
+        this.populate();
     };
 
     async init() : Promise<void> {
@@ -89,8 +123,15 @@ class SkejsChat {
 
     constructor(chatElement : Element) {
         this.chatElement = chatElement;
+        this.chatElement.querySelector(".chat__send-button").addEventListener("click", () => { this.send() });
+        this.chatElement.querySelector(".chat__outbox__text").addEventListener("keypress", (e : KeyboardEvent) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                this.send();
+            }
+        })
         this.init();
     };
 };
 
-const schat = new SkejsChat(document.querySelector(".chat__feed")!);
+const schat = new SkejsChat(document.querySelector(".chat")!);
