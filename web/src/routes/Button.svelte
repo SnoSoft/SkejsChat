@@ -47,7 +47,7 @@
 </style>
 
 <script lang="ts">
-    let { buttonText } = $props();
+    export let buttonText : string;
 </script>
 
-<a href="#" class="btn">{buttonText}</a>
+<a href="#" class="btn" on:click>{buttonText}</a>
