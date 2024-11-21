@@ -5,6 +5,30 @@
             "Receiver_id": 2,
             "Message": "Dette er en test af message.json",
             "Timestamp": "2024-10-27T17:51:43.511Z"
+        },
+        {
+            "Sender_id": 1,
+            "Receiver_id": 2,
+            "Message": "Dette er en test af en konsekvent besked fra message.json",
+            "Timestamp": "2024-10-27T18:51:43.511Z"
+        },
+        {
+            "Sender_id": 2,
+            "Receiver_id": 1,
+            "Message": "Dette er en til test af message.json",
+            "Timestamp": "2024-10-28T17:51:43.511Z"
+        },
+        {
+            "Sender_id": 2,
+            "Receiver_id": 1,
+            "Message": "Dette er en til konsekvent besked test af message.json",
+            "Timestamp": "2024-10-28T17:52:43.511Z"
+        },
+        {
+            "Sender_id": 3,
+            "Receiver_id": 1,
+            "Message": "Dette er en tredjeparts-besked test af message.json",
+            "Timestamp": "2024-10-28T18:52:43.511Z"
         }
     ]
 }
