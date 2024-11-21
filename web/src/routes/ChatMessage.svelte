@@ -32,17 +32,22 @@
                 color: white;
             }
         }
-        &:not(:last-child) {
+        &--consequent-message {
+            margin-bottom: 0.5rem;
+        }
+
+        &--not-consequent-message {
             margin-bottom: 2rem;
         }
     }
 </style>
 
 <script lang="ts">
-    let { byUser = true, username = "undefined", contents = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, quia totam tempore sit voluptate consequatur." } = $props();
+    let { byUser = true, username = "undefined", contents = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, quia totam tempore sit voluptate consequatur.", consequentMessage = false } = $props();
+    let notConsequentMessage = !consequentMessage;
 </script>
 
-<div class="message" class:message--by-user="{byUser}" class:message--not-by-user="{!byUser}">
+<div class="message" class:message--by-user={byUser} class:message--not-by-user={!byUser} class:message--consequent-message={consequentMessage} class:message--not-consequent-message={notConsequentMessage}>
     <h3 class="message__user">{ username }</h3>
     <p class="message__contents">{ contents }</p>
 </div>

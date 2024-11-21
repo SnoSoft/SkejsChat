@@ -18,3 +18,5 @@ export type MessageDataJSON = {
 export type UsernameDataJSON = {
     usernames: Array<TUsernameJSON>;
 };
+
+export type TIdMessageMap = Map<string, TMessageJSON>;
