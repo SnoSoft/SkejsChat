@@ -1,22 +1,13 @@
 {
   "name": "skejschat",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A simple chat application",
-  "main": "index.js",
-  "watch": {
-    "build": {
-      "patterns": [
-        "./src"
-      ],
-      "extensions": "html,scss,ts,json"
-    }
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sh ./build.sh",
-    "start": "xdg-open http://127.0.0.1:8080/; http-server ./dist -p 8080",
-    "watch": "npm-watch build",
-    "dev": "npm-watch build"
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "repository": {
     "type": "git",
@@ -27,15 +18,23 @@
   ],
   "author": "SnoSoft",
   "license": "ISC",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/SnoSoft/SkejsChat/issues"
   },
   "homepage": "https://github.com/SnoSoft/SkejsChat#readme",
   "devDependencies": {
-    "fix-esm-import-path": "^1.10.1",
-    "http-server": "^14.1.1",
-    "npm-watch": "^0.13.0",
-    "sass": "^1.80.6",
-    "typescript": "^5.6.3"
+    "@sveltejs/adapter-auto": "^3.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "@tsconfig/svelte": "^5.0.4",
+    "sass-embedded": "^1.80.6",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.3"
+  },
+  "dependencies": {
+    "open-props": "^1.7.7"
   }
 }
