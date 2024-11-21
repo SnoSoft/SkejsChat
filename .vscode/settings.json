@@ -1,0 +1,7 @@
+{
+    "svelte.plugin.svelte.compilerWarnings": {
+        "css-unused-selector": "ignore"
+    },
+    "svelte.plugin.svelte.defaultScriptLanguage": "ts",
+    "svelte.enable-ts-plugin": true
+}
